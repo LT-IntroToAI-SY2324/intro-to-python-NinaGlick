@@ -74,9 +74,16 @@ def every_other(lst: List[T]) -> List[T]:
     Returns:
         a list of every of other item in the original list starting with the first
     """
+    listReturn=[]
+    for x in range(len(lst)):
+        if(x%2==0):
+            listReturn.append(lst[x])
 
+    return listReturn
+
+        
+# print(every_other([1,2,3,4]))
     
-    raise NotImplementedError("every_other")
 
 
 def sum_list(lst: List[int]) -> int:
@@ -89,7 +96,13 @@ def sum_list(lst: List[int]) -> int:
     Returns:
         the sum of the passed in list
     """
-    raise NotImplementedError("sum_list")
+
+    toReturn=0
+    for x in lst:
+        toReturn+=x;
+    
+    return toReturn
+
 
 
 def mean(lst: List[int]) -> float:
@@ -101,7 +114,13 @@ def mean(lst: List[int]) -> float:
     Returns:
         the mean of the passed in list
     """
-    raise NotImplementedError("mean")
+    sum=0
+    for x in lst:
+        sum+=x
+
+    return sum/len(lst)
+
+    
 
 
 def median(lst: List[int]) -> float:
@@ -116,7 +135,16 @@ def median(lst: List[int]) -> float:
     Returns:
         the median of the passed in list
     """
-    raise NotImplementedError("median")
+
+    if len(lst)%2==1:
+        mid=len(lst)//2
+        return lst[mid]
+    
+    else:
+        mid1=len(lst)//2
+        mid2=mid1-1
+        return lst[(mid1+mid2)//2]
+
 
 
 def duck_duck_goose(lst: List[str]) -> List[str]:
@@ -138,7 +166,28 @@ def duck_duck_goose(lst: List[str]) -> List[str]:
     Returns:
         the resulting list after playing duck duck goose
     """
-    raise NotImplementedError("duck_duck_goose")
+
+    newList=lst[:]
+    i=len(newList)
+    x=0
+    while i>2:
+        print(newList)
+        x+=2
+        if x== len(newList)+2:
+            x=0
+            x+=2
+
+        elif x== len(newList)+1:
+            x=0
+            x+=1
+        
+        
+            
+        newList.pop(x)
+            
+        i-=1
+        
+    return newList
 
 
 # this line causes the nested code to be skipped if the file is imported instead of run
